@@ -1,6 +1,9 @@
 import { Entypo } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { SwipeListView } from 'react-native-swipe-list-view';
+// Async Storage
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import {
     ListView,
     ListViewHidden,
@@ -18,7 +21,10 @@ const ListItems = ({ todos, setTodos, handleTriggerEdit }) => {
         const newTodos = [...todos];
         const todoIndex = todos.findIndex((todo) => todo.key === rowKey);
         newTodos.splice(todoIndex, 1);
-        setTodos(newTodos);
+
+        AsyncStorage.setItem("storedTodos", JSON.stringify(newTodos)).then(() => {
+            setTodos(newTodos);
+        }).catch(error => console.log(error));
     }
     return (
         <>{todos.length == 0 && <TodoText>You dont have any todos today</TodoText>}
