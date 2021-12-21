@@ -110,16 +110,17 @@ export const ModalButton = styled.TouchableOpacity`
     background-color:${colors.tertiary};
     border-radius: 50px;
     justify-content: center;
-    align-item: center;
-    align-self:center
+    align-self:center;
+    align-items:center;
     position:absolute;
     bottom: 15px;
+    
 `;
 
 export const ModalContainer = styled.View`
     padding: 20px;
     justify-content:center;
-    align-item: center;
+    align-items: center;
     flex: 1;
     background-color: ${colors.primary};
 `;
@@ -147,7 +148,7 @@ export const ModalAction = styled.TouchableOpacity`
     background-color: ${(props) => props.color};
     border-radius: 50px;
     justify-content: center;
-    align-item: center;
+    align-items: center;
     align-self:center
 `;
 

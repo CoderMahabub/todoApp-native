@@ -11,7 +11,7 @@ import {
     colors,
 } from "../styles/appStyles";
 
-const ListItems = ({ todos, setTodos }) => {
+const ListItems = ({ todos, setTodos, handleTriggerEdit }) => {
     const [swipedRow, setSwipedRow] = useState(null);
 
     const handleDelete = (rowMap, rowKey) => {
@@ -30,7 +30,7 @@ const ListItems = ({ todos, setTodos }) => {
                         <ListView
                             underlayColor={colors.primary}
                             onPress={() => {
-
+                                handleTriggerEdit(data.item)
                             }}
                         >
                             <>
